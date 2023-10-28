@@ -1,6 +1,6 @@
-import { THREE } from '/three.module.js';
-import { GLTFLoader } from "/GLTFLoader.js";
-import { FlyControls } from "/FlyControls.js";
+import { THREE } from '../js/three.module.js';
+import { GLTFLoader } from "../js/GLTFLoader.js";
+import { FlyControls } from "../js/FlyControls.js";
 
  window.addEventListener('DOMContentLoaded', init);
      
