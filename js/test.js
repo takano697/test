@@ -1,4 +1,4 @@
-import * as THREE from '../js/three.module.js';
+import { THREE } from '../js/three.module.js';
 import { GLTFLoader } from "../js/GLTFLoader.js";
 import { FlyControls } from "../js/FlyControls.js";
 
