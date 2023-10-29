@@ -9,7 +9,7 @@
             window.addEventListener('DOMContentLoaded', main);
             function main(){
                 const canvas = document.querySelector('#canvas');
-                const render = new THREE.WebGLRenderer({antialias: true, canvas});
+                const renderer = new THREE.WebGLRenderer({antialias: true, canvas});
                 
                 const fov = 75;
                 const aspect = 2;
