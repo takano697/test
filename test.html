@@ -4,17 +4,8 @@
         <title>公益大探索</title>
         <meta charset=UTF-8">
         <link rel="stylesheet" href="index.css">
-        <script type="importmap">
-            {
-            "imports":{
-            "three": "https://unpkg.com/three@<version>/build/three.module.js",
-            "three/addons/": "https://unpkg.com/three@<version>/examples/jsm/"
-    }
-    }       
-        </script>
+        <script src="js/three.min.js"></script>
         <script>
-            import * as THREE from 'three';
-            import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
             function main(){
                 const canvas = document.querySelector('#canvas');
                 const render = new THREE.WebGLRenderer({antialias: true, canvas});
