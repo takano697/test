@@ -70,7 +70,6 @@
                     cube.rotation.x = time;
                     cube.rotation.y = time;
                     renderer.render(scene, camera);
-                    setControll();
                     raycaster.setFromCamera(mouse,camera);
                     const intersects = raycaster.intersectObjects(scene.children,false);
                     if(intersects.length > 0){
