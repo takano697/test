@@ -40,7 +40,27 @@
                 cube.name='cube1';
 
                 scene.add(cube);
+		const loader = new THREE.FontLoader();
 
+			loader.load( 'gentilis_bold.typeface.json', function ( font ) {
+
+			const geo = new THREE.TextGeometry( 'Hello three.js!', {
+			font: font,
+			size: 80,
+			height: 5,
+			curveSegments: 12,
+			bevelEnabled: true,
+			bevelThickness: 10,
+			bevelSize: 8,
+			bevelOffset: 0,
+			bevelSegments: 5
+				} );
+			const material = new THREE.MeshPhongMaterial({color: 0x674488});
+				const mess = new THREE.Mesh(geo, material);
+				mess.position.set(1, 1, -1);
+				scene.add(mess);
+				mess.name='mess';
+			} );
                 const color = 0xffffff;
                 const intensity = 3;
                 const light = new THREE.DirectionalLight(color, intensity);
@@ -71,27 +91,7 @@
                     }
                     function handleClick(event){
                         if(clickFlg){
-                        const loader = new THREE.FontLoader();
-
-loader.load( 'gentilis_bold.typeface.json', function ( font ) {
-
-	const geo = new THREE.TextGeometry( 'Hello three.js!', {
-		font: font,
-		size: 80,
-		height: 5,
-		curveSegments: 12,
-		bevelEnabled: true,
-		bevelThickness: 10,
-		bevelSize: 8,
-		bevelOffset: 0,
-		bevelSegments: 5
-	} );
-	const material = new THREE.MeshPhongMaterial({color: 0x674488});
-				const mess = new THREE.Mesh(geo, material);
-		mess.position.set(1, 1, -1);
-				scene.add(mess);
-				mess.name='mess';
-} );
+                        
 				
 				 
 				clickFlg=false;
