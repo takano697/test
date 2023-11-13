@@ -64,13 +64,6 @@
                         window.open('https://www.pentacreation.com/blog/');
                          }
                     }
-                }
-                renderer.render(scene, camera);
-                function render(time){
-                    time *= 0.001;
-                    cube.rotation.x = time;
-                    cube.rotation.y = time;
-                    renderer.render(scene, camera);
                     raycaster.setFromCamera(mouse,camera);
                     const intersects = raycaster.intersectObjects(scene.children,false);
                     if(intersects.length > 0){
@@ -85,6 +78,13 @@
                         }else{
                             clickFlg = false;
                         }
+                }
+                renderer.render(scene, camera);
+                function render(time){
+                    time *= 0.001;
+                    cube.rotation.x = time;
+                    cube.rotation.y = time;
+                    renderer.render(scene, camera);
                     requestAnimationFrame(render);
                 }
                requestAnimationFrame(render);
