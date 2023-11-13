@@ -68,6 +68,7 @@
                     function handleClick(event){
                         if(clickFlg){
                         window.open('https://www.pentacreation.com/blog/');
+				clickFlg=false;
                          }else{
                             clickFlg = false;
                         }
@@ -79,16 +80,13 @@
                         if(obj.name == 'cube1'){
                            if(moveFlg){
                             clickFlg = true;
-                               intersects.splice(0)
                             }
                              }else{
                                 clickFlg = false;
-                                 intersects.splice(0)
                                 }
                         }else{
                             clickFlg = false;
-                             intersects.splice(0)
-                        }
+		    }
 			if(clickFlg){
     			canvas.style.cursor = 'pointer';
    			 }else{
