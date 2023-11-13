@@ -5,6 +5,7 @@
         <meta charset=UTF-8">
         <link rel="stylesheet" href="index.css">
         <script src="js/three.min.js"></script>
+        <script src="OrbitControls.js"></script>
         <script>
             window.addEventListener('DOMContentLoaded', main);
             function main(){
@@ -19,6 +20,7 @@
                 const near = 0.1;
                 const far = 5;
                 const camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
+                camera.position.y = 5;
                 camera.position.z = 2;
 
                 const scene = new THREE.Scene();
