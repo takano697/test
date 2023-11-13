@@ -30,7 +30,7 @@
                 //const material = new THREE.MeshBasicMaterial({color: 0xaa4488});
                 const material = new THREE.MeshPhongMaterial({color: 0xaa4488});
                 const cube = new THREE.Mesh(geometry, material);
-                cube.name='cube';
+                cube.name='cube1';
 
                 scene.add(cube);
 
@@ -70,7 +70,7 @@
                     const intersects = raycaster.intersectObjects(scene.children,false);
                     if(intersects.length > 0){
                         const obj = intersects[0].object;
-                        if(obj.name == 'cube'){
+                        if(obj.name == 'cube1'){
                            if(moveFlg){
                             clickFlg = true;
                                intersects.splice(0)
