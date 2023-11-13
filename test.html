@@ -17,7 +17,6 @@
         	height = document.getElementById('main_canvas').getBoundingClientRect().height;
         	renderer.setPixelRatio(1);
         	renderer.setSize(width, height);
-		scene.background = new THREE.Color( 0x87B8C0 );
                 const fov = 75;
                 const aspect = 2;
                 const near = 0.1;
@@ -29,7 +28,7 @@
 	            
 
                 const scene = new THREE.Scene();
-
+		scene.background = new THREE.Color( 0x87B8C0 );
                 const boxWidth = 1;
                 const boxHeight = 1;
                 const boxDepth = 1;
