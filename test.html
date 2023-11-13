@@ -49,9 +49,10 @@
                 let raycaster;
                 let clickFlg = false;
                 let moveFlg = false;
-                function setControll(){
-                    mouse = new THREE.Vector2();
+		    mouse = new THREE.Vector2();
                     raycaster = new THREE.Raycaster();
+                function setControll(){
+                    
                     canvas.addEventListener('pointermove',handleMouseMove);
                     canvas.addEventListener('click',handleClick);
                     function handleMouseMove(event){
