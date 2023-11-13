@@ -44,9 +44,9 @@
 		const loader = new THREE.FontLoader();
 
 			loader.load( 'gentilis_bold.typeface.json', function ( ft ) {
-
+　　　　　　　　　　　　const font = ft;
 			geo = new THREE.TextGeometry( 'Hello three.js!', {
-			font: ft,
+			font: font,
 			size: 80,
 			height: 5,
 			curveSegments: 12,
