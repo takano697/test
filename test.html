@@ -22,9 +22,8 @@
                 const camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
                 camera.position.z = 2;
                 orbitControls = new OrbitControls(camera,renderer.domElement);
-	            orbitControls.target.set(0,0,0);
-	            orbitControls.enableDamping = true;
-	            orbitControls.dampingFactor = 0.5;
+		controls.update();
+	            
 
                 const scene = new THREE.Scene();
 
