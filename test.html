@@ -20,8 +20,8 @@
                 const near = 0.1;
                 const far = 5;
                 const camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
-                camera.position.z = 2;
-                orbitControls = new OrbitControls(camera,renderer.domElement);
+                camera.position.set(0, 3, 3);
+                controls = new OrbitControls(camera,renderer.domElement);
 		controls.update();
 	            
 
@@ -93,7 +93,7 @@
                     time *= 0.001;
                     cube.rotation.x = time;
                     cube.rotation.y = time;
-                    orbitControls.update();
+                    controls.update();
                     renderer.render(scene, camera);
                     setControll();
                     requestAnimationFrame(render);
