@@ -73,7 +73,7 @@
 
 loader.load( 'gentilis_bold.typeface.json', function ( font ) {
 
-	const mess = new THREE.TextGeometry( 'Hello three.js!', {
+	const geo = new THREE.TextGeometry( 'Hello three.js!', {
 		font: font,
 		size: 80,
 		height: 5,
@@ -85,6 +85,8 @@ loader.load( 'gentilis_bold.typeface.json', function ( font ) {
 		bevelSegments: 5
 	} );
 } );
+				const material = new THREE.MeshPhongMaterial({color: 0xaa4488});
+				const mess = new THREE.Mesh(geo, material);
 		mess.position.set(1, 1, -1);
 				scene.add(mess);
 				mess.name='mess';
