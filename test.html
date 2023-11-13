@@ -6,6 +6,8 @@
         <link rel="stylesheet" href="index.css">
         <script src="js/three.min.js"></script>
         <script src="OrbitControls.js"></script>
+	    <script src="FontLoader.js"></script>
+	    <script src="TextGeometry.js"></script>
         <script>
             window.addEventListener('DOMContentLoaded', main);
             function main(){
@@ -67,7 +69,25 @@
                     }
                     function handleClick(event){
                         if(clickFlg){
-                        window.open('https://www.pentacreation.com/blog/');
+                        const loader = new THREE.FontLoader();
+
+loader.load( 'gentilis_bold.typeface.json', function ( font ) {
+
+	const mess = new THREE.TextGeometry( 'Hello three.js!', {
+		font: font,
+		size: 80,
+		height: 5,
+		curveSegments: 12,
+		bevelEnabled: true,
+		bevelThickness: 10,
+		bevelSize: 8,
+		bevelOffset: 0,
+		bevelSegments: 5
+	} );
+} );
+		mess.position.set(1, 1, -1);
+				scene.add(mess);
+				mess.name='mess';
 				clickFlg=false;
                          }else{
                             clickFlg = false;
