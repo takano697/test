@@ -74,6 +74,7 @@
                 let raycaster;
                 let clickFlg = false;
                 let moveFlg = false;
+		let count = 0;
 		    mouse = new THREE.Vector2();
                     raycaster = new THREE.Raycaster();
                 function setControll(){
@@ -91,16 +92,17 @@
                         mouse.y = -(y/h)*2+1;
                     }
                     function handleClick(event){
-                        if(clickFlg){
+                        if(clickFlg && count == 0){
                         const element =document.createElement('div'); 
 			element.id = "info";
 			element.innerHTML = "hogehoge"; 
 			document.getElementById('main_canvas').appendChild(element);
-				
+		        count = 1;
 				 
 				clickFlg=false;
                          }else{
 				document.getElementById('info').remove();
+				count = 0;
                             clickFlg = false;
                         }
                     }
