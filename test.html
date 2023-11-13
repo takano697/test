@@ -62,7 +62,9 @@
                     function handleClick(event){
                         if(clickFlg){
                         window.open('https://www.pentacreation.com/blog/');
-                         }
+                         }else{
+                            clickFlg
+                        }
                     }
                     raycaster.setFromCamera(mouse,camera);
                     const intersects = raycaster.intersectObjects(scene.children,false);
