@@ -87,6 +87,12 @@
                             clickFlg = false;
                              intersects.splice(0)
                         }
+			if(clickFlg){
+    			container.style.cursor = 'pointer';
+   			 }else{
+    			container.style.cursor = 'grab';
+			    }		
+
                 }
                 renderer.render(scene, camera);
                 function render(time){
