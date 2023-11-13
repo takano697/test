@@ -116,7 +116,7 @@
                                 clickFlg = false;
                                 }
                         }else{
-			    document.getElementById('info').remove();
+			    
                             clickFlg = false;
 		    }
 			if(clickFlg){
@@ -133,9 +133,29 @@
                     cube.rotation.y = time;
                     controls.update();
                     renderer.render(scene, camera);
-                    setControll();
+                    raycaster.setFromCamera(mouse,camera);
+                    const intersects = raycaster.intersectObjects(scene.children,false);
+                    if(intersects.length > 0){
+                        const obj = intersects[0].object;
+                        if(obj.name == 'cube1'){
+                           if(moveFlg){
+                            clickFlg = true;
+                            }
+                             }else{
+                                clickFlg = false;
+                                }
+                        }else{
+			    
+                            clickFlg = false;
+		    }
+			if(clickFlg){
+    			canvas.style.cursor = 'pointer';
+   			 }else{
+    			canvas.style.cursor = 'grab';
+			    }		
                     requestAnimationFrame(render);
                 }
+		    setControll();
                requestAnimationFrame(render);
             }
                 
