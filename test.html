@@ -71,12 +71,15 @@
                         if(obj.name == 'cube'){
                            if(moveFlg){
                             clickFlg = true;
+                               intersects.splice(0)
                             }
                              }else{
                                 clickFlg = false;
+                                 intersects.splice(0)
                                 }
                         }else{
                             clickFlg = false;
+                             intersects.splice(0)
                         }
                 }
                 renderer.render(scene, camera);
