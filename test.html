@@ -71,6 +71,20 @@
                     cube.rotation.x = time;
                     cube.rotation.y = time;
                     renderer.render(scene, camera);
+                    raycaster.setFromCamera(mouse,camera);
+                    const intersects = raycaster.intersectObjects(scene.children,false);
+                    if(intersects.length > 0){
+                        const obj = intersects[0].object;
+                        if(obj.name == 'cube'){
+                           if(moveFlg){
+                            clickFlg = true;
+                            }
+                             }else{
+                                clickFlg = false;
+                                }
+                        }else{
+                            clickFlg = false;
+                        }
                     requestAnimationFrame(render);
                 }
                requestAnimationFrame(render);
