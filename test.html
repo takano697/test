@@ -84,13 +84,14 @@ loader.load( 'gentilis_bold.typeface.json', function ( font ) {
 		bevelOffset: 0,
 		bevelSegments: 5
 	} );
-} );
-				const material = new THREE.MeshPhongMaterial({color: 0xaa4488});
+	const material = new THREE.MeshPhongMaterial({color: 0xaa4488});
 				const mess = new THREE.Mesh(geo, material);
 		mess.position.set(1, 1, -1);
 				scene.add(mess);
 				mess.name='mess';
-				 renderer.render(scene, camera);
+} );
+				
+				 
 				clickFlg=false;
                          }else{
                             clickFlg = false;
