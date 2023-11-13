@@ -46,6 +46,8 @@
                 const light = new THREE.DirectionalLight(color, intensity);
                 light.position.set(-1, 2, 4);
                 scene.add(light);
+		const amb = new THREE.AmbientLight(color, 1);
+		scene.add(amb);
 
                 let mouse;
                 let raycaster;
