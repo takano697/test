@@ -92,7 +92,10 @@
                     }
                     function handleClick(event){
                         if(clickFlg){
-                        
+                        const element =document.createElement('div'); 
+			element.id = "info";
+			element.innerHTML = "hogehoge"; 
+			canvas.appendChild(element);
 				
 				 
 				clickFlg=false;
@@ -139,7 +142,7 @@
     <body>
     <div id="main_canvas">
         <canvas id="canvas" width="100%" height="100%"></canvas>
-	    <div id="info">Description</div>
+	
     </div>
     </body>
     </html>
