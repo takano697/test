@@ -30,6 +30,7 @@
                 //const material = new THREE.MeshBasicMaterial({color: 0xaa4488});
                 const material = new THREE.MeshPhongMaterial({color: 0xaa4488});
                 const cube = new THREE.Mesh(geometry, material);
+                cube.name='cube';
 
                 scene.add(cube);
 
@@ -38,7 +39,32 @@
                 const light = new THREE.DirectionalLight(color, intensity);
                 light.position.set(-1, 2, 4);
                 scene.add(light);
-                
+
+                const mouse;
+                const raycaster;
+                const clickFlg = false;
+                const moveFlg = false;
+                function setControll(){
+                    mouse = new THREE.Vector2();
+                    raycaster = new THREE.Raycaster();
+                    canvas.addEventListener('mousemove',handleMouseMove);
+                    canvas.addEventListener('click',handleClick);
+                    function handleMouseMove(event){
+                        moveFlg = true;
+                        const element = event.currentTarget;
+                        const x = event.clientX - element.offsetLeft;
+                        const y = event.clientY - element.offsetTop;
+                        const w = element.offsetWidth;
+                        const h = element.offsetHeight;
+                        mouse.x = (x/w)*2-1;
+                        mouse.y = -(y/h)*2+1;
+                    }
+                    function handleClick(event){
+                        if(clickFlg){
+                        window.open('https://www.pentacreation.com/blog/');
+                         }
+                    }
+                }
                 renderer.render(scene, camera);
                 function render(time){
                     time *= 0.001;
