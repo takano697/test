@@ -57,8 +57,8 @@
 			bevelSegments: 5
 				} );
 			} );
-		    
-				const mess = new THREE.Mesh(geo, material);
+		    const mate = new THREE.MeshPhongMaterial({color: 0x894488});
+				const mess = new THREE.Mesh(geo, mate);
 				mess.position.set(1, 1, -1);
 				scene.add(mess);
 				mess.name='mess';
