@@ -30,6 +30,7 @@ body {
 
 #info {
 	position: absolute;
+	font-size: large;
 	top: 10px;
 	width: 100%;
 	text-align: center;
