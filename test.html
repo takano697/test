@@ -51,7 +51,7 @@
 		    cube.position.set(1, 1, -2);
                 cube.name='cube1';
 
-                scene.add(cube);
+                //scene.add(cube);
 		let model;
 		let gl=[];
         	loader.load(
@@ -146,7 +146,7 @@
                             clickFlg = false;
                         }
                     }
-                    raycaster.setFromCamera(mouse,camera);
+                    /*raycaster.setFromCamera(mouse,camera);
                     const intersects = raycaster.intersectObjects(scene.children,false);
                     if(intersects.length > 0){
                         const obj = intersects[0].object;
@@ -165,7 +165,7 @@
     			canvas.style.cursor = 'pointer';
    			 }else{
     			canvas.style.cursor = 'grab';
-			    }		
+			    }	*/	
 
                 }
                 renderer.render(scene, camera);
@@ -173,9 +173,9 @@
                 function render(time){
 		    var delta = clock.getDelta();  
             	    controls.update(delta); 
-                    time *= 0.001;
-                    cube.rotation.x = time;
-                    cube.rotation.y = time;
+                    //time *= 0.001;
+                    //cube.rotation.x = time;
+                    //cube.rotation.y = time;
                     renderer.render(scene, camera);
                     raycaster.setFromCamera(mouse,camera);
                     const intersects = raycaster.intersectObjects(scene.children,false);
