@@ -184,7 +184,8 @@
                     if(intersects.length > 0){
                         const obj = intersects[0].object;
 			//console.log(obj.children);
-                        if(obj.children[0].object.name == 'DoorFrame001'){
+			const objchild = obj.children;
+                        if(objchild[0].object.name == 'DoorFrame001'){
                            if(moveFlg){
                             clickFlg = true;
                             }
