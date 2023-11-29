@@ -8,6 +8,9 @@
         <script src="OrbitControls.js"></script>
 	    <script src="FontLoader.js"></script>
 	    <script src="TextGeometry.js"></script>
+	    <script src="FlyControls.js"></script>
+	    <script src="GLTFLoader.js"></script>
+	    <script src="DRACOLoader.js"></script>
         <script>
             window.addEventListener('DOMContentLoaded', main);
             function main(){
@@ -23,9 +26,18 @@
                 const far = 5;
                 const camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
                 camera.position.set(0, 3, 3);
-                controls = new THREE.OrbitControls(camera,renderer.domElement);
-		controls.update();
-	            
+                controls = new THREE.FlyControls(camera,renderer.domElement);
+		controls.movementSpeed = 500;	//移動速度
+        	controls.rollSpeed = Math.PI / 4;   //回転速度
+        	controls.dragToLook = true;
+		//controls.update();
+
+		// Load GLTF or GLB
+	        const loader = new THREE.GLTFLoader();
+       		//const url = 'testdraco.glb';
+        	const draco = new THREE.DRACOLoader();
+		draco.setDecoderPath( 'draco/' );
+		loader.setDRACOLoader( draco );    
 
                 const scene = new THREE.Scene();
 		scene.background = new THREE.Color( 0x87B8C0 );
@@ -40,7 +52,34 @@
                 cube.name='cube1';
 
                 scene.add(cube);
-		let geo;
+		let model;
+		let gl=[];
+        	loader.load(
+            	url,
+            	function (gltf) {
+                model = gltf.scene;
+                model.scale.set(150.0, 150.0, 150.0);
+                model.position.set(0, 0, 0);
+		//for(let i = 0; i < gltf.asset.length; i++){
+ 
+        	//let mesh = gltf.asset[i];
+ 
+        	//コンソールにMeshの名前一覧を出力。
+       		// console.log(gltf.scenes);
+   		// }
+                scene.add(gltf.scene);
+		const sce =scene.children;
+          	if (sce[2] !== null) {
+		gl = sce[2].children;
+               	console.log(sce[2].children);
+           		}
+            	},
+             	function (error) {
+                console.log('An error happened');
+                console.log(error);
+            		}
+        	);
+		/*let geo;
 		const loader = new THREE.FontLoader();
 
 			loader.load( 'gentilis_bold.typeface.json', function ( ft ) {
@@ -61,7 +100,7 @@
 				const mess = new THREE.Mesh(geo, mate);
 				mess.position.set(1, 1, -1);
 				scene.add(mess);
-				mess.name='mess';
+				mess.name='mess';*/
                 const color = 0xffffff;
                 const intensity = 3;
                 const light = new THREE.DirectionalLight(color, intensity);
@@ -129,7 +168,10 @@
 
                 }
                 renderer.render(scene, camera);
+		const clock = new THREE.Clock();
                 function render(time){
+		    var delta = clock.getDelta();  
+            	    controls.update(delta); 
                     time *= 0.001;
                     cube.rotation.x = time;
                     cube.rotation.y = time;
