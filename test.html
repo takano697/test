@@ -171,6 +171,8 @@
 
                 }
 		const clock = new THREE.Clock();
+		      setControll();
+               		render();
                 function render(){
 		    const delta = clock.getDelta();  
             	    controls.update(delta); 
@@ -200,8 +202,6 @@
 		   renderer.render(scene, camera);
                     requestAnimationFrame(render);
                 }
-		    setControll();
-               		render();
             }
                 
         </script>
