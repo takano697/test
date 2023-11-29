@@ -26,10 +26,10 @@
                 const aspect = 2;
                 const near = 0.1;
                 const far = 5;
-                const camera = new THREE.PerspectiveCamera(90, width/height, 1, 10000);
+                const camera = new THREE.PerspectiveCamera(75, 2, 1, 10000);
                 camera.position.set(0, 1.5, 0);
                 controls = new THREE.FlyControls(camera);
-		controls.movementSpeed = 500;	//移動速度
+		controls.movementSpeed = 100;	//移動速度
         	controls.rollSpeed = Math.PI / 4;   //回転速度
         	controls.dragToLook = true;
 		//controls.update();
@@ -60,7 +60,7 @@
             	url,
             	function (gltf) {
                 model = gltf.scene;
-                model.scale.set(150.0, 150.0, 150.0);
+                //model.scale.set(150.0, 150.0, 150.0);
                 model.position.set(0, 0, 0);
 		//for(let i = 0; i < gltf.asset.length; i++){
  
