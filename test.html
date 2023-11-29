@@ -168,7 +168,6 @@
 			    }	*/	
 
                 }
-                renderer.render(scene, camera);
 		const clock = new THREE.Clock();
                 function render(){
 		    const delta = clock.getDelta();  
@@ -176,7 +175,6 @@
                     //time *= 0.001;
                     //cube.rotation.x = time;
                     //cube.rotation.y = time;
-                    renderer.render(scene, camera);
                     raycaster.setFromCamera(mouse,camera);
                     const intersects = raycaster.intersectObjects(scene.children,false);
                     if(intersects.length > 0){
@@ -197,6 +195,7 @@
    			 }else{
     			canvas.style.cursor = 'grab';
 			    }		
+		   renderer.render(scene, camera);
                     requestAnimationFrame(render);
                 }
 		    setControll();
