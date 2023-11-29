@@ -170,8 +170,8 @@
                 }
                 renderer.render(scene, camera);
 		const clock = new THREE.Clock();
-                function render(time){
-		    var delta = clock.getDelta();  
+                function render(){
+		    const delta = clock.getDelta();  
             	    controls.update(delta); 
                     //time *= 0.001;
                     //cube.rotation.x = time;
@@ -200,7 +200,7 @@
                     requestAnimationFrame(render);
                 }
 		    setControll();
-               requestAnimationFrame(render);
+               		render();
             }
                 
         </script>
