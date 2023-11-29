@@ -184,6 +184,11 @@
                     if(intersects.length > 0){
                         const obj = intersects[0].object;
 			console.log(obj.children);
+			const intersectschild = raycaster.intersectObjects(obj.children,false);
+			if(intersectschild.length > 0){
+				const childobj = intersectschild[0].object;
+				console.log(childobj.name);
+			}
                         if(obj.name == 'Room'){
                            if(moveFlg){
                             clickFlg = true;
