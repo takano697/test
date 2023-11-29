@@ -180,7 +180,7 @@
                     //cube.rotation.x = time;
                     //cube.rotation.y = time;
                     raycaster.setFromCamera(mouse,camera);
-                    const intersects = raycaster.intersectObjects(gl,false);
+                    const intersects = raycaster.intersectObjects(gl.children,false);
                     if(intersects.length > 0){
                         const obj = intersects[0].object;
 			console.log(obj.name);
