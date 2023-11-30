@@ -168,6 +168,7 @@
 
                 let mouse;
                 let raycaster;
+		let state = 0;
                 let clickFlg = false;
                 let moveFlg = false;
 		let count = 0;
@@ -199,20 +200,17 @@
                         mixer.update(clock.getDelta());
                     	}
                 	}
-			count = 1;
-			console.log(mixer.clipAction);
-			renderer.setAnimationLoop(() => {
+			console.log(mixer.clipAction(anime[0]));
+			renderer.setAnimationLoop((state) => {
                     	update();
                     	renderer.render(scene, camera);
-			if(count = 0){
-			mixer.clipAction(anime[0]).stop();
-			}
                		 });
-		        
-				clickFlg=false;
+		        count = 1;
+			clickFlg=false;
                          }else{
 				document.getElementById('info').remove();
 				count = 0;
+				state = null;
                             clickFlg = false;
                         }
                     }
