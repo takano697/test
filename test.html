@@ -201,18 +201,14 @@
                     	}
                 	}
 			console.log(mixer.clipAction(anime[0]));
-			let timestamp = Math.floor( Date.now() / 1000 );
-			console.log(timestamp);
+			let stoptime = 0;
 			renderer.setAnimationLoop(() => {
-                    	update();
-                    	renderer.render(scene, camera);
-			let timestamp2 = Math.floor( Date.now() / 1000 );
-			let stoptime = timestamp2 - timestamp;
-			console.log(timestamp2);
-			console.log(stoptime);
-			if(stoptime > 1){
+                    	if(stoptime == 1){
 			renderer.setAnimationLoop(null);
 			}
+			update();
+                    	renderer.render(scene, camera);
+			stoptime = 1;
                		 });
 		        count = 1;
 			clickFlg=false;
