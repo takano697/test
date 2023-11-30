@@ -74,10 +74,10 @@
 		mixer2 = new THREE.AnimationMixer(gltf.scene);
 		clip =  THREE.AnimationClip.findByName( anime, 'Door_GroupOpen' );
 		clip2 =  THREE.AnimationClip.findByName( anime, 'Door_GroupClose' );
-		mixer2.clipAction(clip2).play();
 		console.log(anime);
 		//console.log(mixer.clipAction(clip).clampWhenFinished);
 		mixer.clipAction(clip).play();　
+		mixer2.clipAction(clip2).play();
 		//for(let i = 0; i < gltf.asset.length; i++){
  
         	//let mesh = gltf.asset[i];
