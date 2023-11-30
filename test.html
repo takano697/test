@@ -178,7 +178,8 @@
                 let clickFlg = false;
                 let moveFlg = false;
 		let count = 0;
-		let stoptime,cstoptime =0;
+		let stoptime = 0;
+		let cstoptime = 0;
 		let date = new Date();
 		    mouse = new THREE.Vector2();
                     raycaster = new THREE.Raycaster();
@@ -208,7 +209,7 @@
                         mixer.update(clock.getDelta());
                     	}
                 	}
-			if(cstamp == 0 || cstamp >= 3.5){
+			if(cstoptime == 0 || cstoptime >= 3.5){
 			let timestamp = Math.floor( Date.now() / 1000 );
 			renderer.setAnimationLoop(() => {
 			let timestamp2 = Math.floor( Date.now() / 1000 );
