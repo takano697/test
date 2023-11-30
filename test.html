@@ -62,7 +62,7 @@
 		let gl=[];
 		let gl2,gl3,gl4,gl5 =[];
 		let objgroup = [];
-		let mixer;
+		let mixer,mixer2;
         	loader.load(
             	url,
             	function (gltf) {
@@ -71,9 +71,10 @@
                 //model.scale.set(150.0, 150.0, 150.0);
                 model.position.set(0, 0, 0);
 		mixer = new THREE.AnimationMixer(gltf.scene);
+		mixer2 = new THREE.AnimationMixer(gltf.scene);
 		clip =  THREE.AnimationClip.findByName( anime, 'Door_GroupOpen' );
 		clip2 =  THREE.AnimationClip.findByName( anime, 'Door_GroupClose' );
-		mixer.clipAction(clip2).play();
+		mixer2.clipAction(clip2).play();
 		console.log(anime);
 		//console.log(mixer.clipAction(clip).clampWhenFinished);
 		mixer.clipAction(clip).play();　
