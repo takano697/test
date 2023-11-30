@@ -210,6 +210,7 @@
                     	}
                 	}
 			if(cstoptime == 0 || cstoptime >= 3.5){
+			mixer.clipAction(clip).reset();
 			let timestamp = Math.floor( Date.now() / 1000 );
 			renderer.setAnimationLoop(() => {
 			let timestamp2 = Math.floor( Date.now() / 1000 );
@@ -231,6 +232,7 @@
                     			}
                 		}
 			        if(stoptime >= 3.5){
+				mixer.clipAction(clip2).reset();
 				let ctimestamp = Math.floor( Date.now() / 1000 );
 				renderer.setAnimationLoop(() => {
 				let ctimestamp2 = Math.floor( Date.now() / 1000 );
