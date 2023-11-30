@@ -58,6 +58,7 @@
 		let model;
 		let anime;
 		let clip;
+		let action;
 		let gl=[];
 		let gl2,gl3,gl4,gl5 =[];
 		let objgroup = [];
@@ -72,7 +73,7 @@
 		mixer = new THREE.AnimationMixer(gltf.scene);
 		clip =  THREE.AnimationClip.findByName( anime, 'Door_GroupAction' );
 		console.log(gltf.animations);
-		mixer.clipAction(clip).play();
+		action = mixer.clipAction(clip);
 		mixer.clipAction(clip).clampWhenFinished = true;　
 		//for(let i = 0; i < gltf.asset.length; i++){
  
@@ -204,8 +205,7 @@
                     	}
                 	}
 			console.log(mixer.clipAction(clip));
-			update();
-                    	renderer.render(scene, camera);
+			action.play();
 		        count = 1;
 			clickFlg=false;
                          }else{
