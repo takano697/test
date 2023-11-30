@@ -179,7 +179,7 @@
                 let moveFlg = false;
 		let count = 0;
 		let stoptime = null;
-		let cstoptime = null;
+		let cstoptime = 1000;
 		let date = new Date();
 		    mouse = new THREE.Vector2();
                     raycaster = new THREE.Raycaster();
@@ -209,7 +209,8 @@
                         mixer.update(clock.getDelta());
                     	}
                 	}
-			if(cstoptime == null || cstoptime >= 3.5){
+			if(cstoptime == 1000 || cstoptime >= 3.5){
+			cstoptime = null;
 			mixer.clipAction(clip).reset();
 			let timestamp = Math.floor( Date.now() / 1000 );
 			renderer.setAnimationLoop(() => {
@@ -232,6 +233,7 @@
                     			}
                 		}
 			        if(stoptime >= 3.5){
+				stoptime = null;
 				mixer.clipAction(clip2).reset();
 				let ctimestamp = Math.floor( Date.now() / 1000 );
 				renderer.setAnimationLoop(() => {
@@ -243,9 +245,6 @@
 				update();
 				renderer.render(scene,camera);
 				});
-				}
-				if(cstoptime == null){
-				cstoptime = 1;
 				}
 				count = 0;
                             clickFlg = false;
