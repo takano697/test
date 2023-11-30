@@ -211,7 +211,7 @@
 			renderer.setAnimationLoop(() => {
 			let timestamp2 = Math.floor( Date.now() / 1000 );
 			let stoptime = timestamp2 - timestamp;
-			if(stoptime > 2){
+			if(stoptime > 3.5){
 				renderer.setAnimationLoop(null);
 			}
 			update();
