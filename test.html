@@ -74,7 +74,7 @@
 		clip =  THREE.AnimationClip.findByName( anime, 'Door_GroupAction' );
 		mixer.clipAction(clip).clampWhenFinished = true;
 		console.log(clip);
-		console.log(clip.clampWhenFinished);
+		console.log(mixer.clipAction(clip).clampWhenFinished);
 		mixer.clipAction(clip).play();　
 		//for(let i = 0; i < gltf.asset.length; i++){
  
