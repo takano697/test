@@ -205,10 +205,8 @@
                         mixer.update(clock.getDelta());
                     	}
                 	}
-			console.log(mixer.clipAction(clip));
-			renderer.setAnimationLoop(() => {
+			renderer.requestAnimationFrame(() => {
 			update();
-			console.log(mixer.clipAction(clip).clampWhenFinished);
 			renderer.render(scene,camera);
 			});
 		        count = 1;
