@@ -207,9 +207,9 @@
                         mixer.update(clock.getDelta());
                     	}
                 	}
-			let timestamp = Date.now();
+			let timestamp = Math.floor( Date.now() / 1000 );
 			renderer.setAnimationLoop(() => {
-			let timestamp2 = Date.now();
+			let timestamp2 = Math.floor( Date.now() / 1000 );
 			let stoptime = timestamp2 - timestamp;
 			if(stoptime > 2){
 				renderer.setAnimationLoop(null);
