@@ -71,10 +71,10 @@
                 //model.scale.set(150.0, 150.0, 150.0);
                 model.position.set(0, 0, 0);
 		mixer = new THREE.AnimationMixer(gltf.scene);
-		//mixer2 = new THREE.AnimationMixer(gltf.scene);
+		mixer2 = new THREE.AnimationMixer(gltf.scene);
 		clip =  THREE.AnimationClip.findByName( anime, 'Door_GroupOpen' );
-		//clip2 =  THREE.AnimationClip.findByName( anime, 'Door_GroupClose' );
-		//mixer2.clipAction(clip2).play();
+		clip2 =  THREE.AnimationClip.findByName( anime, 'Door_GroupClose' );
+		mixer2.clipAction(clip2).play();
 		console.log(anime);
 		//console.log(mixer.clipAction(clip).clampWhenFinished);
 		mixer.clipAction(clip).play();　
@@ -178,6 +178,7 @@
                 let clickFlg = false;
                 let moveFlg = false;
 		let count = 0;
+		let stoptime,cstoptime =0;
 		let date = new Date();
 		    mouse = new THREE.Vector2();
                     raycaster = new THREE.Raycaster();
@@ -207,20 +208,39 @@
                         mixer.update(clock.getDelta());
                     	}
                 	}
+			if(cstamp == 0 || cstamp >= 3.5){
 			let timestamp = Math.floor( Date.now() / 1000 );
 			renderer.setAnimationLoop(() => {
 			let timestamp2 = Math.floor( Date.now() / 1000 );
-			let stoptime = timestamp2 - timestamp;
+			stoptime = timestamp2 - timestamp;
 			if(stoptime > 3.5){
 				renderer.setAnimationLoop(null);
 			}
 			update();
 			renderer.render(scene,camera);
 			});
+			}
 		        count = 1;
 			clickFlg=false;
                          }else{
 				document.getElementById('info').remove();
+				function update() {
+                    		if (mixer2) {
+                       		 mixer2.update(clock.getDelta());
+                    			}
+                		}
+			        if(stoptime >= 3.5){
+				let ctimestamp = Math.floor( Date.now() / 1000 );
+				renderer.setAnimationLoop(() => {
+				let ctimestamp2 = Math.floor( Date.now() / 1000 );
+				cstoptime = ctimestamp2 - ctimestamp;
+				if(cstoptime > 3.5){
+				renderer.setAnimationLoop(null);
+				}
+				update();
+				renderer.render(scene,camera);
+				});
+				}
 				count = 0;
                             clickFlg = false;
                         }
