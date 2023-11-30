@@ -54,25 +54,21 @@
                 cube.name='cube1';
 
                 //scene.add(cube);
+		const clock = new THREE.Clock();
 		let model;
 		let gl=[];
 		let gl2,gl3,gl4,gl5 =[];
 		let objgroup = [];
+		let mixer;
         	loader.load(
             	url,
             	function (gltf) {
                 model = gltf.scene;
                 //model.scale.set(150.0, 150.0, 150.0);
                 model.position.set(0, 0, 0);
-		let mixer = new THREE.AnimationMixer(gltf.scene);
+		mixer = new THREE.AnimationMixer(gltf.scene);
 		console.log(gltf.animations);
 		mixer.clipAction(gltf.animations[0]).play();
-		// アニメーションを更新する関数を定義する
-                function update() {
-                    if (mixer) {
-                        mixer.update(clock.getDelta());
-                    }
-                }
 		//for(let i = 0; i < gltf.asset.length; i++){
  
         	//let mesh = gltf.asset[i];
@@ -195,6 +191,12 @@
 			element.id = "info";
 			element.innerHTML = "hogehoge"; 
 			document.getElementById('main_canvas').appendChild(element);
+			// アニメーションを更新する関数を定義する
+                	function update() {
+                    	if (mixer) {
+                        mixer.update(clock.getDelta());
+                    	}
+                	}
 			renderer.setAnimationLoop(() => {
                     	update();
                     	renderer.render(scene, camera);
@@ -230,7 +232,6 @@
 			    }	*/	
 
                 }
-		const clock = new THREE.Clock();
 		      setControll();
                		render();
                 function render(){
