@@ -71,7 +71,7 @@
 		mixer = new THREE.AnimationMixer(gltf.scene);
 		console.log(gltf.animations);
 		mixer.clipAction(gltf.animations[0]).play();
-		mixer.clipAction(gltf.animations[0]).clampWhenFinished(true);　
+		mixer.clipAction(gltf.animations[0]).clampWhenFinished = true;　
 		//for(let i = 0; i < gltf.asset.length; i++){
  
         	//let mesh = gltf.asset[i];
