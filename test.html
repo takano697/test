@@ -76,8 +76,8 @@
 		const sce =scene.children;
           	if (sce[1] !== null) {
 		gl = sce[1].children;
-               	console.log(sce[1].children);
-		console.log(gl[0].type);
+               	//console.log(sce[1].children);
+		//console.log(gl[0].type);
 			for(let i = 0; i+1 <= gl.length; i++){
 			if(gl[i].type == 'Mesh'){
 				objgroup.push(gl[i]);
@@ -91,6 +91,7 @@
 			}
 				}
            		}
+			console.log(objgroup);
             	},
              	function (error) {
                 console.log('An error happened');
