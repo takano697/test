@@ -206,7 +206,13 @@
                         mixer.update(clock.getDelta());
                     	}
                 	}
+			let timestamp = Date.now();
 			renderer.setAnimationLoop(() => {
+			let timestamp2 = Date.now();
+			let stoptime = timestamp2 - timestamp;
+			if(stoptime > 2){
+				renderer.setAnimationLoop(null);
+			}
 			update();
 			renderer.render(scene,camera);
 			});
