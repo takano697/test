@@ -57,6 +57,7 @@
 		let model;
 		let gl=[];
 		let gl2 =[];
+		let objgroup = [];
         	loader.load(
             	url,
             	function (gltf) {
@@ -75,9 +76,20 @@
 		const sce =scene.children;
           	if (sce[1] !== null) {
 		gl = sce[1].children;
-		gl2 = gl[0].children;
                	console.log(sce[1].children);
 		console.log(gl[0].type);
+			for(let i = 0; i+1 <= gl.length; i++){
+			if(gl[i].type == 'Mesh'){
+				objgroup.push(gl[i]);
+			}else if(gl[i].type == 'Object3D' || gl[i].type == 'Group'){
+				gl2 = gl[i].children;
+				for(let i = 0; i+1 <= gl2.length; i++){
+				if(gl2[i].type == 'Mesh'){
+				objgroup.push(gl2[i]);
+				}
+				}
+			}
+				}
            		}
             	},
              	function (error) {
@@ -183,11 +195,11 @@
                     //cube.rotation.x = time;
                     //cube.rotation.y = time;
                     raycaster.setFromCamera(mouse,camera);
-                    const intersects = raycaster.intersectObjects(gl2,false);
+                    const intersects = raycaster.intersectObjects(objgroup,false);
                     if(intersects.length > 0){
                         const obj = intersects[0].object;
 			//console.log(obj.children);
-                        if(obj.name == 'DoorFrame001'){
+                        if(obj.name == 'DoorFrame001' || obj.name == 'Room'){
                            if(moveFlg){
                             clickFlg = true;
                             }
