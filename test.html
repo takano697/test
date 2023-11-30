@@ -63,6 +63,9 @@
 		let gl2,gl3,gl4,gl5 =[];
 		let objgroup = [];
 		let mixer;
+		const stats = new Stats();
+		stats.showPanel(0);
+		document.body.appendChild(stats.dom);
         	loader.load(
             	url,
             	function (gltf) {
@@ -206,7 +209,9 @@
                     	}
                 	}
 			renderer.setAnimationLoop(() => {
+			stats.begin();
 			update();
+			stats.end();
 			renderer.render(scene,camera);
 			});
 		        count = 1;
