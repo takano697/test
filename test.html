@@ -205,7 +205,7 @@
                         mixer.update(clock.getDelta());
                     	}
                 	}
-			renderer.requestAnimationFrame(() => {
+			requestAnimationFrame(() => {
 			update();
 			renderer.render(scene,camera);
 			});
