@@ -66,6 +66,13 @@
                 model.position.set(0, 0, 0);
 		let mixer = new THREE.AnimationMixer(gltf.scene);
 		console.log(gltf.animations);
+		mixer.clipAction(gltf.animations[0]).play();
+		// アニメーションを更新する関数を定義する
+                function update() {
+                    if (mixer) {
+                        mixer.update(clock.getDelta());
+                    }
+                }
 		//for(let i = 0; i < gltf.asset.length; i++){
  
         	//let mesh = gltf.asset[i];
@@ -188,6 +195,10 @@
 			element.id = "info";
 			element.innerHTML = "hogehoge"; 
 			document.getElementById('main_canvas').appendChild(element);
+			renderer.setAnimationLoop(() => {
+                    	update();
+                    	renderer.render(scene, camera);
+               		 });
 		        count = 1;
 				 
 				clickFlg=false;
