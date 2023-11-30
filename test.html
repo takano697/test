@@ -208,6 +208,7 @@
 			console.log(mixer.clipAction(clip));
 			renderer.setAnimationLoop(() => {
 			update();
+			console.log(mixer.clipAction(clip).clampWhenFinished);
 			renderer.render(scene,camera);
 			});
 		        count = 1;
