@@ -71,6 +71,7 @@
 		mixer = new THREE.AnimationMixer(gltf.scene);
 		console.log(gltf.animations);
 		mixer.clipAction(gltf.animations[0]).play();
+		mixer.clipAction(gltf.animations[0]).clampWhenFinished(true);　
 		//for(let i = 0; i < gltf.asset.length; i++){
  
         	//let mesh = gltf.asset[i];
@@ -201,14 +202,9 @@
                     	}
                 	}
 			console.log(mixer.clipAction(anime[0]));
-			let stoptime = 0;
 			renderer.setAnimationLoop(() => {
-                    	if(stoptime == 1){
-			renderer.setAnimationLoop(null);
-			}
 			update();
                     	renderer.render(scene, camera);
-			stoptime = 1;
                		 });
 		        count = 1;
 			clickFlg=false;
