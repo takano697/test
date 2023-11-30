@@ -209,14 +209,14 @@
                         mixer.update(clock.getDelta());
                     	}
                 	}
-			if(cstoptime == 1000 || cstoptime >= 3.5){
+			if(cstoptime == 1000 || cstoptime >= 2.8){
 			cstoptime = null;
 			mixer.clipAction(clip).reset();
 			let timestamp = Math.floor( Date.now() / 1000 );
 			renderer.setAnimationLoop(() => {
 			let timestamp2 = Math.floor( Date.now() / 1000 );
 			stoptime = timestamp2 - timestamp;
-			if(stoptime > 3.5){
+			if(stoptime > 3){
 				renderer.setAnimationLoop(null);
 			}
 			update();
@@ -232,14 +232,14 @@
                        		 mixer2.update(clock.getDelta());
                     			}
                 		}
-			        if(stoptime >= 3.5){
+			        if(stoptime >= 3){
 				stoptime = null;
 				mixer2.clipAction(clip2).reset();
 				let ctimestamp = Math.floor( Date.now() / 1000 );
 				renderer.setAnimationLoop(() => {
 				let ctimestamp2 = Math.floor( Date.now() / 1000 );
 				cstoptime = ctimestamp2 - ctimestamp;
-				if(cstoptime > 3.5){
+				if(cstoptime > 2.8){
 				renderer.setAnimationLoop(null);
 				}
 				update();
