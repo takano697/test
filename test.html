@@ -201,12 +201,12 @@
                     	}
                 	}
 			console.log(mixer.clipAction(anime[0]));
-			let timestamp = Math.floor( date.getTime() / 1000 );
+			let timestamp = Math.floor( date.now() / 1000 );
 			console.log(timestamp);
 			renderer.setAnimationLoop(() => {
                     	update();
                     	renderer.render(scene, camera);
-			let timestamp2 = Math.floor( date.getTime() / 1000 );
+			let timestamp2 = Math.floor( date.now() / 1000 );
 			let stoptime = timestamp2 - timestamp;
 			console.log(timestamp2);
 			console.log(stoptime);
