@@ -197,12 +197,16 @@
                         mixer.update(clock.getDelta());
                     	}
                 	}
+			count = 1;
+			console.log(mixer.clipAction);
 			renderer.setAnimationLoop(() => {
                     	update();
                     	renderer.render(scene, camera);
+			if(count = 0){
+			mixer.clipAction.stop();
+			}
                		 });
-		        count = 1;
-				 
+		        
 				clickFlg=false;
                          }else{
 				document.getElementById('info').remove();
