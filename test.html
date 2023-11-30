@@ -70,7 +70,7 @@
                 //model.scale.set(150.0, 150.0, 150.0);
                 model.position.set(0, 0, 0);
 		mixer = new THREE.AnimationMixer(gltf.scene);
-		clip =  new THREE.AnimationClip.findByName( anime, 'Door_GroupAction' );
+		clip =  THREE.AnimationClip.findByName( anime, 'Door_GroupAction' );
 		console.log(gltf.animations);
 		mixer.clipAction(clip).play();
 		mixer.clipAction(clip).clampWhenFinished = true;　
