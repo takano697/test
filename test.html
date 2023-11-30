@@ -72,9 +72,9 @@
                 model.position.set(0, 0, 0);
 		mixer = new THREE.AnimationMixer(gltf.scene);
 		clip =  THREE.AnimationClip.findByName( anime, 'Door_GroupAction' );
+		clip.clampWhenFinished = true;
 		console.log(clip.tracks);
-		mixer.clipAction(clip).play();
-		clip.clampWhenFinished = true;　
+		mixer.clipAction(clip).play();　
 		//for(let i = 0; i < gltf.asset.length; i++){
  
         	//let mesh = gltf.asset[i];
