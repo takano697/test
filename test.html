@@ -168,7 +168,6 @@
 
                 let mouse;
                 let raycaster;
-		let state = 0;
                 let clickFlg = false;
                 let moveFlg = false;
 		let count = 0;
@@ -201,16 +200,16 @@
                     	}
                 	}
 			console.log(mixer.clipAction(anime[0]));
-			renderer.setAnimationLoop((null) => {
+			renderer.setAnimationLoop(){
                     	update();
                     	renderer.render(scene, camera);
-               		 });
+               		 }
 		        count = 1;
 			clickFlg=false;
                          }else{
 				document.getElementById('info').remove();
 				count = 0;
-				state = null;
+				renderer.setAnimationLoop(null);
                             clickFlg = false;
                         }
                     }
