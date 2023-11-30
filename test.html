@@ -56,7 +56,7 @@
                 //scene.add(cube);
 		let model;
 		let gl=[];
-		let gl2 =[];
+		let gl2,gl3,gl4,gl5 =[];
 		let objgroup = [];
         	loader.load(
             	url,
@@ -74,23 +74,42 @@
                 scene.add(gltf.scene);
 		console.log(scene.children);
 		const sce =scene.children;
-          	if (sce[1] !== null) {
+          	if (sce[1] !== undefined) {
 		gl = sce[1].children;
                	//console.log(sce[1].children);
 		//console.log(gl[0].type);
 			for(let i = 0; i+1 <= gl.length; i++){
-			if(gl[i].type == 'Mesh'){
-				objgroup.push(gl[i]);
-			}else if(gl[i].type == 'Object3D' || gl[i].type == 'Group'){
+			if(gl[i].children.length > 0){
 				gl2 = gl[i].children;
 				for(let i = 0; i+1 <= gl2.length; i++){
-				if(gl2[i].type == 'Mesh'){
+				if(gl2[i].children.length > 0){
+				gl3 = gl2[i].children;
+					for(let i = 0; i+1 <= gl3.length; i++){
+					if(gl3[i].children.length > 0){
+					gl4 = gl3[i].children;
+						for(let i = 0; i+1 <= gl4.length; i++){
+						if(gl4[i].children.length > 0){
+						gl5 = gl4[i].children;
+							for(let i = 0; i+1 <= gl5.length; i++){
+							objgroup.push(gl5[i]);
+							}
+						}else{	
+						objgroup.push(gl4[i]);
+						}
+					 	}	
+					}else{	
+					objgroup.push(gl3[i]);
+					}
+					}
+				}else{	
 				objgroup.push(gl2[i]);
 				}
-				}
+	    			}			
+			}else{	
+				objgroup.push(gl[i]);
+			}
 			}
 				}
-           		}
 			console.log(objgroup);
             	},
              	function (error) {
