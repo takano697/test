@@ -57,6 +57,7 @@
 		const clock = new THREE.Clock();
 		let model;
 		let anime;
+		let clip;
 		let gl=[];
 		let gl2,gl3,gl4,gl5 =[];
 		let objgroup = [];
@@ -69,9 +70,10 @@
                 //model.scale.set(150.0, 150.0, 150.0);
                 model.position.set(0, 0, 0);
 		mixer = new THREE.AnimationMixer(gltf.scene);
+		clip =  new THREE.AnimationClip.findByName( anime, 'Door_GroupAction' );
 		console.log(gltf.animations);
-		mixer.clipAction(gltf.animations[0]).play();
-		mixer.clampWhenFinished = true;　
+		mixer.clipAction(clip).play();
+		mixer.clipAction(clip).clampWhenFinished = true;　
 		//for(let i = 0; i < gltf.asset.length; i++){
  
         	//let mesh = gltf.asset[i];
