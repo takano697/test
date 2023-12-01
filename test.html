@@ -225,7 +225,7 @@
 			}
 		        count = 1;
 			clickFlg=false;
-                         }else{
+                         }else if(clickFlg){
 				document.getElementById('info').remove();
 				function update() {
                     		if (mixer2) {
@@ -248,7 +248,11 @@
 				}
 				count = 0;
                             clickFlg = false;
-                        }
+                        }else{
+				document.getElementById('info').remove();
+				count = 0;
+                            	clickFlg = false;
+			}
                     }
                     /*raycaster.setFromCamera(mouse,camera);
                     const intersects = raycaster.intersectObjects(scene.children,false);
