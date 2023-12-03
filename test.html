@@ -244,6 +244,7 @@
 			clickFlg=false;
                          }else if(clickFlg){
 				document.getElementById('info').remove();
+				light.material.emissive.set(1,1,1);
 				function update() {
                     		if (mixer2) {
                        		 mixer2.update(clock.getDelta());
