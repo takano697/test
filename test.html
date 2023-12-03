@@ -215,6 +215,7 @@
 			element.id = "info";
 			element.innerHTML = "hogehoge"; 
 			document.getElementById('main_canvas').appendChild(element);
+			light.material.emissive.set(0,0,0);
 			// アニメーションを更新する関数を定義する
                 	function update() {
                     	if (mixer) {
