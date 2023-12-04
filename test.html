@@ -34,6 +34,17 @@
         	controls.dragToLook = true;
 		//controls.update();
 
+		// カメラ位置をリセットするためのメニュー項目
+          	const gui = new dat.GUI();
+          	const settings = {
+            	resetCamera: function() {
+           	var delta = clock.getDelta();  
+            	controls.update(delta);  
+              	camera.position.set(300, 250, 0);
+               	camera.lookAt(-10,250,0);
+           	}
+          	};
+     
 		// Load GLTF or GLB
 	        const loader = new THREE.GLTFLoader();
        		const url = 'testdraco.glb';
