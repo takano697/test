@@ -43,23 +43,10 @@
             	controls.update(delta);  
 		console.log(controls.object.position);
               	//camera.position.set(300, 250, 0);
-		let lookaty = 1.5;
 		let target = new THREE.Vector3();
 		controls.object.getWorldDirection(target);
 		console.log(target);
-		let lookatx = 0;
-		let lookatz = 0;
-		if(target.x < 0){
-               		lookatx = controls.object.position.x - 0.001;
-		}else if(target.x > 0){
-			lookatx = controls.object.position.z + 0.001;
-		}
-		if(target.z < 0){
-               		lookatz = controls.object.position.z - 0.001;
-		}else if(target.z > 0){
-			lookatz = controls.object.position.x + 0.001;
-		}
-		camera.lookAt(new THREE.Vector3(lookatx, lookaty, lookatz));
+		camera.lookAt(0,1.5,0);
            	}
           	};
 　　　　　　　 	// メニューGUI
