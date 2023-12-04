@@ -42,7 +42,7 @@
            	var delta = clock.getDelta();  
             	controls.update(delta);  
               	//camera.position.set(300, 250, 0);
-               	camera.lookAt(0,1.5,0);
+               	camera.lookAt(controls.object.position.x,1.5,controls.object.position.z);
            	}
           	};
 　　　　　　　 	// メニューGUI
