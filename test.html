@@ -316,7 +316,7 @@
                 function render(){
 		    const delta = clock.getDelta();  
             	    controls.update(delta); 
-		    let target;
+		    let target = new THREE.Vector3();
 		    controls.object.getWorldDirection(target);
 		    console.log(target);
                     //time *= 0.001;
