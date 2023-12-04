@@ -42,7 +42,21 @@
            	var delta = clock.getDelta();  
             	controls.update(delta);  
               	//camera.position.set(300, 250, 0);
-               	camera.lookAt(controls.object.position.x,1.5,controls.object.position.z);
+		let lookaty = 1.5;
+		let target = new THREE.Vector3();
+		controls.object.getWorldDirection(target);
+		console.log(target);
+		if(target.x < 0){
+               		let lookatx = controls.object.position.x - 10;
+		}else if(target.x > 0){
+			let lookatx = controls.object.position.x + 10;
+		}
+		if(target.z < 0){
+               		let lookatz = controls.object.position.z - 10;
+		}else if(target.z > 0){
+			let lookatz = controls.object.position.z + 10;
+		}
+		camera.lookAt(new THREE.Vector3(lookatx, lookaty, lookatz));
            	}
           	};
 　　　　　　　 	// メニューGUI
@@ -316,9 +330,6 @@
                 function render(){
 		    const delta = clock.getDelta();  
             	    controls.update(delta); 
-		    let target = new THREE.Vector3();
-		    controls.object.getWorldDirection(target);
-		    console.log(target);
                     //time *= 0.001;
                     //cube.rotation.x = time;
                     //cube.rotation.y = time;
