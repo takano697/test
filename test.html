@@ -47,8 +47,8 @@
 		let target = new THREE.Vector3();
 		controls.object.getWorldDirection(target);
 		console.log(target);
-		let lookatx;
-		let lookatz;
+		let lookatx = 0;
+		let lookatz = 0;
 		if(target.x < 0){
                		lookatx = controls.object.position.x - 0.1;
 		}else if(target.x > 0){
