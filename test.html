@@ -42,8 +42,7 @@
            	var delta = clock.getDelta();  
             	controls.update(delta);  
               	//camera.position.set(300, 250, 0);
-               	//camera.lookAt(controls.object.position.x,1.5,controls.object.position.z);
-		console.log(controls.object.getWorldDirection());
+               	camera.lookAt(controls.object.position.x,1.5,controls.object.position.z);
            	}
           	};
 　　　　　　　 	// メニューGUI
@@ -317,6 +316,7 @@
                 function render(){
 		    const delta = clock.getDelta();  
             	    controls.update(delta); 
+		    console.log(controls.object.getWorldDirection());
                     //time *= 0.001;
                     //cube.rotation.x = time;
                     //cube.rotation.y = time;
