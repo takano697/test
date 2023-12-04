@@ -38,11 +38,17 @@
 		// カメラ位置をリセットするためのメニュー項目
           	const gui = new dat.GUI();
           	const settings = {
-            	resetCamera: function() {
+            	resetPosition: function() {
            	var delta = clock.getDelta();  
             	controls.update(delta);  
 		console.log(controls.object.position);
-              	//camera.position.set(300, 250, 0);
+              	camera.position.set(0, 1.5, 0);
+           	}
+          	};
+		const settings2 = {
+            	resetRotation: function() {
+           	var delta = clock.getDelta();  
+            	controls.update(delta);  
 		let target = new THREE.Vector3();
 		controls.object.getWorldDirection(target);
 		console.log(target);
@@ -50,7 +56,8 @@
            	}
           	};
 　　　　　　　 	// メニューGUI
-          	gui.add(settings, 'resetCamera');
+          	gui.add(settings, 'resetPosition');
+		gui.add(settings2, 'resetRotation');
          	 gui.open();
      
 		// Load GLTF or GLB
