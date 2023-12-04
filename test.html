@@ -50,14 +50,14 @@
 		let lookatx = 0;
 		let lookatz = 0;
 		if(target.x < 0){
-               		lookatx = controls.object.position.x - 0.1;
+               		lookatx = controls.object.position.x - 0.001;
 		}else if(target.x > 0){
-			lookatx = controls.object.position.x + 0.1;
+			lookatx = controls.object.position.x + 0.001;
 		}
 		if(target.z < 0){
-               		lookatz = controls.object.position.z - 0.1;
+               		lookatz = controls.object.position.z - 0.001;
 		}else if(target.z > 0){
-			lookatz = controls.object.position.z + 0.1;
+			lookatz = controls.object.position.z + 0.001;
 		}
 		camera.lookAt(new THREE.Vector3(lookatx, lookaty, lookatz));
            	}
