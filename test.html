@@ -316,7 +316,9 @@
                 function render(){
 		    const delta = clock.getDelta();  
             	    controls.update(delta); 
-		    console.log(controls.object.getWorldDirection());
+		    let target;
+		    controls.object.getWorldDirection(target);
+		    console.log(target);
                     //time *= 0.001;
                     //cube.rotation.x = time;
                     //cube.rotation.y = time;
