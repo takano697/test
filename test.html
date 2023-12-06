@@ -17,8 +17,10 @@
             function main(){
                 const canvas = document.querySelector('#canvas');
 		const context= canvas.getContext("2d");
+		context.save();
 		context.fillRect(0,0,200,300);
 		context.fillStyle = 'rgba(255,0,0,0.1)';
+		context.restore();
                 const renderer = new THREE.WebGLRenderer({alpha: true, canvas});
                 width = document.getElementById('main_canvas').getBoundingClientRect().width;
         	height = document.getElementById('main_canvas').getBoundingClientRect().height;
