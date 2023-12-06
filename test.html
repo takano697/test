@@ -16,7 +16,8 @@
             window.addEventListener('DOMContentLoaded', main);
             function main(){
                 const canvas = document.querySelector('#canvas');
-		const context= canvas.getContext("2d");
+		const canvas2 = document.querySelector('#canvas2');
+		const context= canvas2.getContext("2d");
 		context.save();
 		context.fillRect(0,0,200,300);
 		context.fillStyle = 'rgba(255,0,0,0.1)';
@@ -366,6 +367,10 @@
     <body>
     <div id="main_canvas">
         <canvas id="canvas" width="100%" height="100%"></canvas>
+	
+    </div>
+    <div id="main_canvas2">
+        <canvas id="canvas2" width="100%" height="100%"></canvas>
 	
     </div>
     </body>
