@@ -243,9 +243,20 @@
 		    mouse = new THREE.Vector2();
                     raycaster = new THREE.Raycaster();
                 function setControll(){
-                    
+                    canvas.addEventListener('keyup',handleKeyup);
                     canvas.addEventListener('pointermove',handleMouseMove);
                     canvas.addEventListener('click',handleClick);
+
+		    function handleKeyup(event){
+		    	const evekey = event.keycode;
+			if(evekey == 13){
+			display.material = new THREE.MeshStandardMaterial({
+    			map: texture
+			});
+			display.material.map.flipY = false;
+			}
+		    }
+			
                     function handleMouseMove(event){
                         moveFlg = true;
                         const element = event.currentTarget;
@@ -264,11 +275,6 @@
 			document.getElementById('main_canvas').appendChild(element);
 			light.material.emissive.set(0,0,0);
 			console.log(display.material);
-			display.material = //マテリアルにテクスチャーを設定
-			new THREE.MeshStandardMaterial({
-    			map: texture
-			});
-			display.material.map.flipY = false;
 			console.log(display.material);
 			console.log(light.material.emissive);
 			// アニメーションを更新する関数を定義する
