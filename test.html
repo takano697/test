@@ -87,7 +87,7 @@
 
                 //scene.add(cube);
 		const clock = new THREE.Clock();
-		let model,light,display;
+		let model,light,display,onemate;
 		let anime;
 		let clip,clip2;
 		let action;
@@ -190,6 +190,7 @@
 			}
 			console.log(light);
 			console.log(display.material.map.image);
+			onemate = display.material;
             	},
              	function (error) {
                 console.log('An error happened');
@@ -299,6 +300,7 @@
                          }else if(clickFlg){
 				document.getElementById('info').remove();
 				light.material.emissive.setRGB(1,1,1);
+				display.material = onemate;
 				console.log(light.material.emissive);
 				function update() {
                     		if (mixer2) {
