@@ -243,7 +243,7 @@
 		    mouse = new THREE.Vector2();
                     raycaster = new THREE.Raycaster();
                 function setControll(){
-                    canvas.addEventListener('keyup',handleKeyup);
+                    window.addEventListener('keyup',handleKeyup);
                     canvas.addEventListener('pointermove',handleMouseMove);
                     canvas.addEventListener('click',handleClick);
 
