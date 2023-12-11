@@ -106,16 +106,19 @@
 		mixer2 = new THREE.AnimationMixer(gltf.scene);
 		mixer3 = new THREE.AnimationMixer(gltf.scene);
 		mixer4 = new THREE.AnimationMixer(gltf.scene);
+		mixer5 = new THREE.AnimationMixer(gltf.scene);
 		clip =  THREE.AnimationClip.findByName( anime, 'DoorOpenAction' );
 		clip2 =  THREE.AnimationClip.findByName( anime, 'DoorCloseAction' );
-		//clip3 =  THREE.AnimationClip.findByName( anime, 'lighAction' );
+		clip3 =  THREE.AnimationClip.findByName( anime, 'displayAction' );
 		clip4 =  THREE.AnimationClip.findByName( anime, 'Cube.002Action' );
+		clip5 =  THREE.AnimationClip.findByName( anime, 'displayAction.001' );
 		console.log(anime);
 		//console.log(mixer.clipAction(clip).clampWhenFinished);
 		mixer.clipAction(clip).play();　
 		mixer2.clipAction(clip2).play();
-		//mixer3.clipAction(clip3).play();　
-		mixer4.clipAction(clip4).play();　
+		mixer3.clipAction(clip3).play();　
+		mixer4.clipAction(clip4).play();
+		mixer5.clipAction(clip5).play();
 		//for(let i = 0; i < gltf.asset.length; i++){
  
         	//let mesh = gltf.asset[i];
@@ -253,14 +256,14 @@
                 	function update() {
                     	if (mixer) {
                         mixer.update(clock.getDelta());
-			//mixer3.update(clock.getDelta());
+			mixer3.update(clock.getDelta());
 			mixer4.update(clock.getDelta());
                     	}
                 	}
 			if(cstoptime == 1000 || cstoptime >= 2.8){
 			cstoptime = null;
 			mixer.clipAction(clip).reset();
-			//mixer3.clipAction(clip3).reset();
+			mixer3.clipAction(clip3).reset();
 			mixer4.clipAction(clip4).reset();
 			let timestamp = Math.floor( Date.now() / 1000 );
 			renderer.setAnimationLoop(() => {
@@ -282,11 +285,13 @@
 				function update() {
                     		if (mixer2) {
                        		 mixer2.update(clock.getDelta());
+				 mixer5.update(clock.getDelta());
                     			}
                 		}
 			        if(stoptime >= 3){
 				stoptime = null;
 				mixer2.clipAction(clip2).reset();
+				mixer5.clipAction(clip2).reset();
 				let ctimestamp = Math.floor( Date.now() / 1000 );
 				renderer.setAnimationLoop(() => {
 				let ctimestamp2 = Math.floor( Date.now() / 1000 );
