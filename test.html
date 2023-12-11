@@ -226,6 +226,11 @@
 		const amb = new THREE.AmbientLight(0xf8f8ff, 0.7);
 		scene.add(amb);
 
+		//画像を読み込む
+		const texloader = new THREE.TextureLoader();
+		const texture = texloader.load('quiz/quiz2.JPG');
+		    
+		    
                 let mouse;
                 let raycaster;
                 let clickFlg = false;
@@ -257,8 +262,12 @@
 			element.innerHTML = "hogehoge"; 
 			document.getElementById('main_canvas').appendChild(element);
 			light.material.emissive.set(0,0,0);
-			display.material.map.image.src = "https://takano697.github.io/quiz/quiz2.JPG";
-			console.log(display.material.map.image);
+			console.log(display.material);
+			display.material = //マテリアルにテクスチャーを設定
+			new THREEE.MeshStandardMaterial({
+    			map: texture
+			});
+			console.log(display.material);
 			console.log(light.material.emissive);
 			// アニメーションを更新する関数を定義する
                 	function update() {
