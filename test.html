@@ -87,7 +87,7 @@
 
                 //scene.add(cube);
 		const clock = new THREE.Clock();
-		let model,light;
+		let model,light,display;
 		let anime;
 		let clip,clip2;
 		let action;
@@ -183,7 +183,13 @@
 			light = objgroup[i];
 			}
 			}
+			 for(i=0; i+1 <= objgroup.length; i++){
+			if(objgroup[i].name == "display"){
+			display = objgroup[i];
+			}
+			}
 			console.log(light);
+			console.log(display.material.map.image);
             	},
              	function (error) {
                 console.log('An error happened');
